@@ -21,7 +21,7 @@ button {
     color: cadetblue;
 }
 
-#roundBox {
+#game {
     display: flex;
     flex-direction: column;
     border: 2px solid cadetblue;
@@ -30,18 +30,25 @@ button {
     row-gap: 20rem;
 }
 
-#roundBox > div,
-#roundResult > div {
+#game > div,
+#match > div {
     margin: 1rem;
 }
 
-#duelBox {
+#vs {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.duelHand {
+#gameOver {
+    border: 3px solid pink;
+    border-radius: 5px;
+    color: indianred;
+    padding: 1rem;
+}
+
+.hand {
     flex: 1;
     border: 2px solid cadetblue;
     border-radius: 3px;
@@ -49,20 +56,6 @@ button {
     padding: 1rem;
 }
 
-#gameEnding {
-    border: 3px solid pink;
-    border-radius: 5px;
-    color: indianred;
-    padding: 1rem;
-}
-
 .largeFont {
     font-size: x-large;
 }
-
-
-
-
-
-
-

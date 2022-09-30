@@ -1,78 +1,78 @@
-const rpsButtons = document.getElementsByClassName("rpsButton");
-
-const startBox = document.getElementById("startBox");
+const intro = document.getElementById("intro");
 const startButton = document.getElementById("startButton");
-const roundBox = document.getElementById("roundBox");
+const game = document.getElementById("game");
 const roundNumber = document.getElementById("roundNumber");
-const moveOption = document.getElementById("moveOption");
-const roundResult = document.getElementById("roundResult");
-const userMove = document.getElementById("userMove");
-const compMove = document.getElementById("compMove");
-const roundMessage = document.getElementById("roundMessage");
-const roundWinner = document.getElementById("roundWinner");
-const userScore = document.getElementById("userScore");
-const compScore = document.getElementById("compScore");
-const nextBox = document.getElementById("nextBox");
-const nextRound = document.getElementById("nextRound");
-const gameEnding = document.getElementById("gameEnding");
-const winnerBox = document.getElementById("winnerBox");
-const startOver = document.getElementById("startOver");
+const handOption = document.getElementById("handOption");
+const handButtons = document.getElementsByClassName("handButton");
+const match = document.getElementById("match");
+const hand1 = document.getElementById("hand1");
+const hand2 = document.getElementById("hand2");
+const matchComment = document.getElementById("matchComment");
+const matchWinner = document.getElementById("matchWinner");
+const score1 = document.getElementById("score1");
+const score2 = document.getElementById("score2");
+const total1 = document.getElementById("total1");
+const total2 = document.getElementById("total2");
+const next = document.getElementById("next");
+const nextButton = document.getElementById("nextButton");
+const gameOver = document.getElementById("gameOver");
+const gameWinner = document.getElementById("gameWinner");
+const restartButton = document.getElementById("restartButton");
 
+const maxRound = 5;
 let roundNum = 1;
 let totalScore = [0, 0];
-const maxRound = 5;
 
 function startGame() {
-    startBox.style = "display: none";
-    roundBox.style = "display: block";
-    moveOption.style = "display: block";
+    intro.style = "display: none";
+    game.style = "display: block";
+    handOption.style = "display: block";
     roundNumber.textContent = roundNum;
 }
 
 function playRound(e) {
-    moveOption.style = "display: none";
-    roundResult.style = "display: block";
+    handOption.style = "display: none";
+    match.style = "display: block";
 
-    const player1 = this.id;
-    const player2 = randomMove();
+    const shoot1 = this.id;
+    const shoot2 = randomMove();
 
-    userMove.textContent = player1.toUpperCase();
-    compMove.textContent = player2.toUpperCase();
+    hand1.textContent = shoot1.toUpperCase();
+    hand2.textContent = shoot2.toUpperCase();
 
-    const roundScore = getScore(player1, player2);
-    totalScore[0] = totalScore[0] + roundScore[0];
-    totalScore[1] = totalScore[1] + roundScore[1];
+    const matchScore = getScore(shoot1, shoot2);
+    totalScore[0] = totalScore[0] + matchScore[0];
+    totalScore[1] = totalScore[1] + matchScore[1];
 
-    roundMessage.textContent = getMessage(roundScore, player1, player2);
-    roundWinner.textContent = getWinner(roundScore);
-    userScore.textContent = roundScore[0];
-    compScore.textContent = roundScore[1];
-    userTotal.textContent = totalScore[0];
-    compTotal.textContent = totalScore[1];
+    matchComment.textContent = getMessage(matchScore, shoot1, shoot2);
+    matchWinner.textContent = getWinner(matchScore);
+    score1.textContent = matchScore[0];
+    score2.textContent = matchScore[1];
+    total1.textContent = totalScore[0];
+    total2.textContent = totalScore[1];
 
     if (roundNum === maxRound) {
-        winnerBox.textContent = getWinner(totalScore);
-        nextBox.style = "display: none";
-        gameEnding.style = "display: block";    
+        gameWinner.textContent = getWinner(totalScore);
+        next.style = "display: none";
+        gameOver.style = "display: block";    
     }
 }
 
 function playNext() {
-    moveOption.style = "display: block";
-    roundResult.style = "display: none";
+    handOption.style = "display: block";
+    match.style = "display: none";
     roundNum += 1;
     roundNumber.textContent = roundNum;
 }
 
+function restart(){
+    intro.style = "display: block";
+    next.style = "display: block";
 
-function refreshPage(){
-    startBox.style = "display: block";
-    nextBox.style = "display: block";
-
-    roundBox.style = "display: none";
-    moveOption.style = "display: none";
-    roundResult.style = "display: none";
-    gameEnding.style = "display: none";
+    game.style = "display: none";
+    handOption.style = "display: none";
+    match.style = "display: none";
+    gameOver.style = "display: none";
     
     roundNum = 1;
     totalScore = [0, 0];
@@ -99,49 +99,45 @@ function getWinner(score) {
     }
 }
 
-function getVerb(item) {
-    if (item === "rock") {
+function getVerb(hand) {
+    if (hand === "rock") {
         return "breaks";
-    } else if (item === "paper") {
+    } else if (hand === "paper") {
         return "wraps";
-    } else if (item === "scissors") {
+    } else if (hand === "scissors") {
         return "cuts";
     }
 }
 
-function getScore(p1, p2) {
-    if (p1 === p2) {
-        return [0, 0]; // tie
+function getScore(h1, h2) {
+    if (h1 === h2) {
+        return [0, 0];
     } else if (
-        (p1 === "rock" && p2 === "scissors") || 
-        (p1 === "paper" && p2 === "rock") || 
-        (p1 === "scissors" && p2 === "paper")
+        (h1 === "rock" && h2 === "scissors") || 
+        (h1 === "paper" && h2 === "rock") || 
+        (h1 === "scissors" && h2 === "paper")
     ) {
-        return [1, 0]; // p1 win
+        return [1, 0];
     } else if (
-        (p2 === "rock" && p1 === "scissors") || 
-        (p2 === "paper" && p1 === "rock") || 
-        (p2 === "scissors" && p1 === "paper")
+        (h2 === "rock" && h1 === "scissors") || 
+        (h2 === "paper" && h1 === "rock") || 
+        (h2 === "scissors" && h1 === "paper")
     ) {
-        return [0, 1]; // p2 win
+        return [0, 1];
     }
 }
 
-function getMessage(score, p1, p2) {
+function getMessage(score, h1, h2) {
     if (score[0] === 1) {
-        return `Your ${p1} ${getVerb(p1)} computer's ${p2}.`;
+        return `Your ${h1} ${getVerb(h1)} computer's ${h2}.`;
     } else if (score[1] === 1) {
-        return `Computer's ${p2} ${getVerb(p2)} your ${p1}. `;
+        return `Computer's ${h2} ${getVerb(h2)} your ${h1}. `;
     } else {
         return `Nothing really happens...`;
     }
 }
 
 startButton.addEventListener('click', startGame);
-Array.from(rpsButtons).forEach(bt => bt.addEventListener("click", playRound));
-nextRound.addEventListener('click', playNext);
-startOver.addEventListener('click', refreshPage);
-
-
-
-
+Array.from(handButtons).forEach(bt => bt.addEventListener("click", playRound));
+nextButton.addEventListener('click', playNext);
+restartButton.addEventListener('click', restart);

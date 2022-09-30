@@ -11,64 +11,54 @@
             Rock Paper Scissors 
         </header>
         <main>
-            <div id="startBox" style="display: block;">
+            <div id="intro" style="display: block;">
                 <button id="startButton">Play 5 rounds against computer</button>
             </div>
-            <div id="roundBox" style="display: none;">
+            <div id="game" style="display: none;">
                 <div class="largeFont">Round <span id="roundNumber"></span></div>
-                <div id="moveOption">
+                <div id="handOption">
                     <div>Pick your move:</div>
-                    <div id="shootBox">
-                        <button class="rpsButton" id="rock">Rock</button>
-                        <button class="rpsButton" id="paper">Paper</button>
-                        <button class="rpsButton" id="scissors">Scissors</button>
+                    <div>
+                        <button class="handButton" id="rock">Rock</button>
+                        <button class="handButton" id="paper">Paper</button>
+                        <button class="handButton" id="scissors">Scissors</button>
                     </div>
                 </div>
-                <div id="roundResult" style="display: none;">
-                    <div id="duelBox">
-                        <div class="duelHand">
+                <div id="match" style="display: none;">
+                    <div id="vs">
+                        <div class="hand">
                             Your move:
-                            <div id="userMove" class="largeFont"></div>                        
+                            <div id="hand1" class="largeFont"></div>                        
                         </div>
                         <div class="largeFont">VS</div>
-                        <div class="duelHand">
+                        <div class="hand">
                             Computer's move:
-                            <div id="compMove" class="largeFont"></div> 
+                            <div id="hand2" class="largeFont"></div> 
                         </div>
                     </div>
-                    <div id="roundComment">
-                        <div id="roundMessage"></div>
-                        <div id="roundWinner" class="largeFont"></div>
+                    <div>
+                        <div id="matchComment"></div>
+                        <div id="matchWinner" class="largeFont"></div>
                     </div>
                     <div>
                         <div>Round score:</div>
-                        <div class="largeFont"><span id="userScore"></span> : <span id="compScore"></span></div>
+                        <div class="largeFont"><span id="score1"></span> : <span id="score2"></span></div>
                     </div>
                     <div>
                         <div>Total score:</div>
-                        <div class="largeFont"><span id="userTotal"></span> : <span id="compTotal"></span></div>
+                        <div class="largeFont"><span id="total1"></span> : <span id="total2"></span></div>
                     </div>
-                    <div id="nextBox" style="display: block;">
-                        <button id="nextRound">Next round</button>
-                    </div>
-                    
-                </div>
-                  
-                <div id="gameEnding" style="display: none;">
+                    <div id="next" style="display: block;">
+                        <button id="nextButton">Next round</button>
+                    </div>                    
+                </div>                  
+                <div id="gameOver" style="display: none;">
                     <div>Game over...</div>
-                    <div id="winnerBox" class="largeFont"></div>
-                    <button id="startOver">Start over?</button>
+                    <div id="gameWinner" class="largeFont"></div>
+                    <button id="restartButton">Start over?</button>
                 </div>
-
-            </div>
-            
-        </main>
-            
-
-
+            </div>            
+        </main>        
         <script src="./rock_paper_scissors_game.js"></script>
-
-
-
     </body>
 </html>
