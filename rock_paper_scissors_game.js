@@ -19,7 +19,7 @@ const gameWinner = document.getElementById("gameWinner");
 const restartButton = document.getElementById("restartButton");
 const accumulativeScore = document.getElementById("accumulativeScore");
 
-const maxScore = 2;
+const maxScore = 5;
 let roundNum = 1;
 let totalScore = [0, 0];
 
