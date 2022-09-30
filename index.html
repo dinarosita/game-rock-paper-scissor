@@ -1,1 +1,63 @@
-<script src="./rock_paper_scissors_game.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Rock Paper Scissors</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <header>
+            Rock Paper Scissors 
+        </header>
+        <main>
+            <div id="startBox" style="display: block;">
+                <button id="startButton">Play 5 rounds against computer</button>
+            </div>
+            <div id="roundBox" style="display: none;">
+                <div id="roundNumber" class="largeFont"></div>
+                <div id="roundMove">
+                    <div>Pick your move:</div>
+                    <div id="shootBox">
+                        <button class="rpsButton" id="rock">Rock</button>
+                        <button class="rpsButton" id="paper">Paper</button>
+                        <button class="rpsButton" id="scissors">Scissors</button>
+                    </div>
+                </div>
+                <div id="roundResult" style="display: none;">
+                    <div id="duelBox">
+                        <div class="duelHand">
+                            Your move:
+                            <div id="userMove" class="largeFont"></div>                        
+                        </div>
+                        <div class="largeFont">VS</div>
+                        <div class="duelHand">
+                            Computer's move:
+                            <div id="compMove" class="largeFont"></div> 
+                        </div>
+                    </div>
+                    <div id="roundComment">
+                        <div id="roundMessage"></div>
+                        <div id="roundWinner" class="largeFont"></div>
+                    </div>
+                    <div>
+                        <div>Round score:</div>
+                        <div class="largeFont"><span id="userScore"></span> : <span id="compScore"></span></div>
+                    </div>
+                    <div>
+                        <div>Total score:</div>
+                        <div class="largeFont"><span id="userTotal"></span> : <span id="compTotal"></span></div>
+                    </div>
+                    <button id="nextRound" display="block">Next round</button>
+                </div>            
+            </div>
+        </main>
+            
+
+
+        <script src="./rock_paper_scissors_game.js"></script>
+
+
+
+    </body>
+</html>
