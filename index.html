@@ -15,8 +15,8 @@
                 <button id="startButton">Play 5 rounds against computer</button>
             </div>
             <div id="roundBox" style="display: none;">
-                <div id="roundNumber" class="largeFont"></div>
-                <div id="roundMove">
+                <div class="largeFont">Round <span id="roundNumber"></span></div>
+                <div id="moveOption">
                     <div>Pick your move:</div>
                     <div id="shootBox">
                         <button class="rpsButton" id="rock">Rock</button>
@@ -48,9 +48,20 @@
                         <div>Total score:</div>
                         <div class="largeFont"><span id="userTotal"></span> : <span id="compTotal"></span></div>
                     </div>
-                    <button id="nextRound" display="block">Next round</button>
-                </div>            
+                    <div id="nextBox" style="display: block;">
+                        <button id="nextRound">Next round</button>
+                    </div>
+                    
+                </div>
+                  
+                <div id="gameEnding" style="display: none;">
+                    <div>Game over...</div>
+                    <div id="winnerBox" class="largeFont"></div>
+                    <button id="startOver">Start over?</button>
+                </div>
+
             </div>
+            
         </main>
             
 
