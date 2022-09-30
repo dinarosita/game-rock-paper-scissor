@@ -12,7 +12,7 @@
         </header>
         <main>
             <div id="intro" style="display: block;">
-                <button id="startButton">Play 5 rounds against computer</button>
+                <button id="startButton">Who can win 5 rounds first?</button>
             </div>
             <div id="game" style="display: none;">
                 <div class="largeFont">Round <span id="roundNumber"></span></div>
@@ -43,21 +43,23 @@
                     <div>
                         <div>Round score:</div>
                         <div class="largeFont"><span id="score1"></span> : <span id="score2"></span></div>
-                    </div>
-                    <div>
-                        <div>Total score:</div>
-                        <div class="largeFont"><span id="total1"></span> : <span id="total2"></span></div>
-                    </div>
-                    <div id="next" style="display: block;">
-                        <button id="nextButton">Next round</button>
-                    </div>                    
-                </div>                  
+                    </div>                                      
+                </div>     
+                          
+                <div id="next" style="display: none;">
+                    <button id="nextButton">Next round</button>
+                </div>  
                 <div id="gameOver" style="display: none;">
                     <div>Game over...</div>
                     <div id="gameWinner" class="largeFont"></div>
                     <button id="restartButton">Start over?</button>
                 </div>
-            </div>            
+                   
+            </div>      
+            <div id="total" style="display: none;">
+                <div class="largeFont">Scores</div>
+                <div id="accumulativeScore"></div>                
+            </div>      
         </main>        
         <script src="./rock_paper_scissors_game.js"></script>
     </body>

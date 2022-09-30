@@ -28,10 +28,12 @@ button {
     border-radius: 3px;
     padding: 1rem;
     row-gap: 20rem;
+    min-height: 23rem;
 }
 
 #game > div,
-#match > div {
+#match > div,
+#total {
     margin: 1rem;
 }
 
@@ -58,4 +60,4 @@ button {
 
 .largeFont {
     font-size: x-large;
-}
+}   

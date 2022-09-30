@@ -11,15 +11,15 @@ const matchComment = document.getElementById("matchComment");
 const matchWinner = document.getElementById("matchWinner");
 const score1 = document.getElementById("score1");
 const score2 = document.getElementById("score2");
-const total1 = document.getElementById("total1");
-const total2 = document.getElementById("total2");
 const next = document.getElementById("next");
 const nextButton = document.getElementById("nextButton");
+const total = document.getElementById("total");
 const gameOver = document.getElementById("gameOver");
 const gameWinner = document.getElementById("gameWinner");
 const restartButton = document.getElementById("restartButton");
+const accumulativeScore = document.getElementById("accumulativeScore");
 
-const maxRound = 5;
+const maxScore = 2;
 let roundNum = 1;
 let totalScore = [0, 0];
 
@@ -33,6 +33,8 @@ function startGame() {
 function playRound(e) {
     handOption.style = "display: none";
     match.style = "display: block";
+    total.style = "display: block";
+    next.style = "display: block";
 
     const shoot1 = this.id;
     const shoot2 = randomMove();
@@ -48,10 +50,13 @@ function playRound(e) {
     matchWinner.textContent = getWinner(matchScore);
     score1.textContent = matchScore[0];
     score2.textContent = matchScore[1];
-    total1.textContent = totalScore[0];
-    total2.textContent = totalScore[1];
 
-    if (roundNum === maxRound) {
+    const accuDiv = document.createElement("div");
+    const accuText = document.createTextNode(`Round ${roundNum} = ${totalScore[0]} : ${totalScore[1]}`);
+    accuDiv.appendChild(accuText);
+    accumulativeScore.appendChild(accuDiv);
+
+    if (totalScore[0] === maxScore || totalScore[1] === maxScore) {
         gameWinner.textContent = getWinner(totalScore);
         next.style = "display: none";
         gameOver.style = "display: block";    
@@ -61,18 +66,22 @@ function playRound(e) {
 function playNext() {
     handOption.style = "display: block";
     match.style = "display: none";
+    next.style = "display: none";
+
     roundNum += 1;
     roundNumber.textContent = roundNum;
 }
 
 function restart(){
     intro.style = "display: block";
-    next.style = "display: block";
+    next.style = "display: none";
 
     game.style = "display: none";
     handOption.style = "display: none";
     match.style = "display: none";
     gameOver.style = "display: none";
+    total.style = "display: none";
+    accumulativeScore.textContent = "";
     
     roundNum = 1;
     totalScore = [0, 0];
